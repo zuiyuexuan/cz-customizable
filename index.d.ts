@@ -8,6 +8,7 @@ declare module "cz-customizable" {
     scopes?: Option[];
     scopeOverrides?: { [type: string]: Option[] };
     messages?: {
+      hook: string,
       type?: string,
       scope?: string,
       customScope?: string,

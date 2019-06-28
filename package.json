@@ -1,9 +1,12 @@
 {
-  "version": "0.0.0-development",
-  "name": "cz-customizable",
-  "description": "Commitizen customizable adapter following the conventional-changelog format.",
+  "version": "1.0.0",
+  "name": "@patsec/cz-customizable",
+  "description": "基于cz-customizable，添加hook（必须以空间简称#卡片ID开头）配置检测",
   "main": "index.js",
   "types": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "node_modules/eslint/bin/eslint.js *.js spec/**.js",
     "test": "node_modules/jasmine-node/bin/jasmine-node spec/",
@@ -16,14 +19,14 @@
     "commit": "./standalone.js",
     "travis-deploy-once": "travis-deploy-once"
   },
-  "homepage": "https://github.com/leonardoanalista/cz-customizable",
+  "homepage": "https://github.com/zuiyuexuan/cz-customizable",
   "repository": {
     "type": "git",
-    "url": "https://github.com/leonardoanalista/cz-customizable.git"
+    "url": "https://github.com/zuiyuexuan/cz-customizable.git"
   },
-  "author": "Leonardo Correa <leonardoanalista@gmail.com>",
+  "author": "pqfang <729882885@qq.com>",
   "contributors": [
-    "Aleksey Guryanov <gurianov@gmail.com>"
+    "pqfang <729882885@qq.com>"
   ],
   "license": "MIT",
   "dependencies": {

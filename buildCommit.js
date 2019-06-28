@@ -24,6 +24,7 @@ const addScope = (scope, config) => {
 };
 
 const addSubject = subject => _.trim(subject);
+const addHook = hook => _.trim(hook) + ' ';
 
 const addType = (type, config) => {
   const prefix = _.get(config, 'typePrefix', '');
@@ -71,6 +72,7 @@ module.exports = (answers, config) => {
   // Hard limit this line
   // eslint-disable-next-line max-len
   const head = (
+    addHook(answers.hook) +
     addType(answers.type, config) +
     addScope(answers.scope, config) +
     addTicketNumber(answers.ticketNumber, config) +

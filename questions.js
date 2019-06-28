@@ -25,6 +25,7 @@ module.exports = {
     const messages = config.messages || {};
     const skipQuestions = config.skipQuestions || [];
 
+    messages.hook = messages.hook || "（hook）空间简称#卡片ID：\n";
     messages.type = messages.type || "Select the type of change that you're committing:";
     messages.scope = messages.scope || '\nDenote the SCOPE of this change (optional):';
     messages.customScope = messages.customScope || 'Denote the SCOPE of this change:';
@@ -45,6 +46,24 @@ module.exports = {
     messages.confirmCommit = messages.confirmCommit || 'Are you sure you want to proceed with the commit above?';
 
     let questions = [
+      {
+        type: 'input',
+        name: 'hook',
+        message: messages.hook,
+        validate(value) {
+          const limit = config.subjectLimit || 100;
+          if (value.length > limit) {
+            return `Exceed limit: ${limit}`;
+          }
+          if(value.indexOf("#")<0){
+            return `必须含有卡片ID`;
+          }
+          if(!value.split('#')[0]){
+            return `必须含有空间简称`;
+          }
+          return true;
+        }
+      },
       {
         type: 'list',
         name: 'type',
